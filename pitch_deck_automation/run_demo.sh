@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Sago Assignment Demo Runner
+# Pitch Deck Automation Demo Runner
 # This script sets up the environment, generates a dummy PDF, and runs the agent.
 
 echo "Setting up Sago Pitch Deck Agent..."

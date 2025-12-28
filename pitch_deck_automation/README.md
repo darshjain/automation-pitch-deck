@@ -247,21 +247,19 @@ This enables semantic recall over historical deal flow, supporting questions suc
 ### Installation
 ```bash
 git clone <repo>
-cd sago_assignment
-pip install -r sago_assignment/requirements.txt
+cd pitch_deck_automation
+pip install -r requirements.txt
 ````
 
 ### Demo
 
 ```bash
-bash sago_assignment/run_demo.sh
+bash run_demo.sh
 ```
 
 ### Tests
 
 ```bash
-export PYTHONPATH=$PYTHONPATH:$(pwd)/sago_assignment
-pytest sago_assignment/tests/
+export PYTHONPATH=$PYTHONPATH:$(pwd)
+pytest tests/
 ```
-
-

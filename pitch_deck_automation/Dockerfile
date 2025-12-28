@@ -3,7 +3,7 @@ FROM python:3.10-slim as builder
 
 WORKDIR /app
 
-COPY sago_assignment/requirements.txt .
+COPY pitch_deck_automation/requirements.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 
 # Runtime Stage
@@ -16,9 +16,9 @@ COPY --from=builder /root/.local /root/.local
 ENV PATH=/root/.local/bin:$PATH
 
 # Copy source code
-COPY sago_assignment/src ./src
-COPY sago_assignment/data ./data
-COPY sago_assignment/README.md .
+COPY pitch_deck_automation/src ./src
+COPY pitch_deck_automation/data ./data
+COPY pitch_deck_automation/README.md .
 
 # Environment variables
 ENV PYTHONPATH=/app
