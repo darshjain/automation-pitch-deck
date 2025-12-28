@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  sago-agent:
+    build:
+      context: ..
+      dockerfile: sago_assignment/Dockerfile
+    container_name: sago_agent
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - mongo
+      - redpanda
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:6.0
+    container_name: sago_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:latest
+    container_name: sago_queue
+    command:
+      - redpanda start
+      - --smp 1 
+      - --memory 1G 
+      - --reserve-memory 0M 
+      - --overprovisioned 
+      - --node-id 0 
+      - --check=false
+    ports:
+      - "9092:9092"
+
+volumes:
+  mongo_data:

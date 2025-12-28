@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+output_report.md
+*.pdf
+!sago_assignment/data/samples/pitch_deck_dummy.pdf
+.pytest_cache/
